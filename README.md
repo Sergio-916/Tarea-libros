@@ -25,7 +25,7 @@ To get the application running locally:
 
 4. Start the server:
 
-   npm start
+   node app.js
    
 
 The application will be available at `http://localhost:3030`.
@@ -65,7 +65,7 @@ Para ejecutar la aplicación localmente:
 
 4. Inicia el servidor:
 
-   npm start
+   node app.js
 
 
 La aplicación estará disponible en `http://localhost:3030`.
