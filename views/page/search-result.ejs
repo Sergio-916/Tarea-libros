@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/search.css" />
+    <link rel="stylesheet" href="../../public/style.css" />
+    <title>Search Books</title>
+  </head>
+  <body>
+    <form class="search-form" action="/books/search" method="get">
+      <label for="query">Search book</label>
+      <input type="text" name="title" id="title" placeholder="book title" />
+      <input type="text" name="author" id="author" placeholder="author" />
+
+      <select id="genre" name="genre">
+        <option value="">All genres</option>
+        <option value="fiction">Fiction</option>
+        <option value="non-fiction">Non-fiction</option>
+        <option value="science & technology">Science & Technology</option>
+        <option value="computers">Computers</option>
+        <option value="education">Education</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="mystery">Mystery</option>
+        <option value="romance">Romance</option>
+        <option value="history">History</option>
+        <option value="music & art">Music & Art</option>
+      </select>
+      <input type="submit" value="Search" />
+    </form>
+
+    <h2>Search results for <%= title %></h2>
+    <ul class="books-list">
+      <% if (books && books.items) { %> <% books.items.forEach((item) => { %>
+      <li class="book-item">
+        <a class="book" href="/books/select/<%= item.id %>"
+          ><%= item.volumeInfo.title %></a
+        >
+      </li>
+      <% }); %> <% } else { %>
+      <p class="no-books">No books found.</p>
+      <% } %>
+    </ul>
+    <a class="link" href="/">Back to menu</a>
+  </body>
+</html>

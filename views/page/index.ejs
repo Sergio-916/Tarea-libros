@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/index.css" />
+    <link rel="stylesheet" href="../../public/style.css" />
+    <title>Books app</title>
+  </head>
+  <body>
+    <h1 class="title">Books Library</h1>
+
+    <h3 class="title">My book recommendations</h3>
+
+    <%if (!books) { %>
+    <p class="no-books">Search and select as favorites at least one books</p>
+    
+      <% } else { %> 
+        <p class="recommendations"> Recommendations based on category:
+          <b><%= category.second_category %></b> <% } %>
+    </p>
+
+    <ul class="books-list">
+      <% if (books && books.items) { %> <% books.items.forEach((item) => { %>
+      <li class="book-item">
+        <a href="/books/select/<%= item.id %>"><%= item.volumeInfo.title %></a>
+      </li>
+      <% }); %> <% } else { %>
+      <p class="no-books">No books found.</p>
+      <% } %>
+    </ul>
+
+    <div class="links">
+       <a class="link" href="/books/top">Show top books</a>
+    
+    
+       <a class="link" href="/books/search">Search books</a>
+    
+       <a class="link" href="/books/favorites">Show favorites</a>
+    </div>
+
+    <p class="copyright">Copyright &copy; 2024 <a class="link-author" href="https://github.com/Sergio-916">Sergio-916</a></p>
+  </body>
+</html>

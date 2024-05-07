@@ -1,0 +1,72 @@
+.title {
+  background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Styling for no books and category messages */
+.no-books, .recommendations {
+  text-align: center;
+  color: #e74c3c;
+  margin-top: 10px;
+}
+
+/* Links styling within the body */
+.links a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* List styling for displaying books */
+.books-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* List items styling */
+.book-item {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: start;
+  font-weight: 500;
+  border-left: 5px solid #0056b3;
+}
+
+/* Styling book links within list items */
+.book-item a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.book-item a:hover {
+  text-decoration: underline;
+}
+.links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: fit-content;       
+  margin-left: auto;        
+  margin-right: auto;
+  text-align: left;         
+}
+.copyright {
+  text-align: end;
+  margin-top: 20px;
+  
+}
+.link-author{
+  text-decoration: none;
+}

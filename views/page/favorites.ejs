@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/favorites.css">
+    <link rel="stylesheet" href="../../public/style.css">
+    <title>Favorites</title>
+  </head>
+  <body>
+    <h1 class="title">Favorite Books</h1>
+
+    <ul class="books-list">
+        <% if (favoriteBooks.length > 0) { %> <% favoriteBooks.forEach((item) => { %>
+        <li class="favorite-item">
+          <a class="book" href="/books/favorites/<%= item.book_id %>"><%= item.title %></a>
+          <form class="favorites_btns" action="/books/favorites/delete/<%= item.book_id %>" method="POST">
+            <button class="remove-button" type="submit">Remove</button>
+          </form>
+        </li class="favorite-item">
+        <% }); %> <% } else { %>
+        <p class="no-books">No books found.</p>
+        <% } %>
+      </ul>
+      <a class="link" href="/">Back to menu</a>
+  </body>
+</html>

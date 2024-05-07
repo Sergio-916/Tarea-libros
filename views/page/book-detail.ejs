@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../public/details.css">
+    <link rel="stylesheet" href="../../public/style.css">
+    <title>Book Details</title>
+  </head>
+  <body>
+    <h1 class="title"><%= book.volumeInfo.title %></h1>
+    <p class="author">Author: <%= book.volumeInfo.authors.join(", ") %></p>
+
+    <% if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) { %>
+        <img class="book-cover" src="<%= book.volumeInfo.imageLinks.thumbnail %>" alt="Book Cover" />
+    <% } %>
+  
+    <p class="language">Language: <%= book.volumeInfo.language %> </p>
+    <p class="publish_year">Publish year: <%= book.volumeInfo.publishedDate %> </p> 
+    <p class="page_count"> Number of pages: <%= book.volumeInfo.pageCount %></p> 
+    <p class="description"> Description: <%- book.volumeInfo.description %></p>
+    
+    
+
+    <form action="/books/favorites/add" method="post">
+      <input type="hidden" name="id" value="<%= book.id %>" />
+      <input type="hidden" name="title" value="<%= book.volumeInfo.title %>" />
+      <input type="hidden" name="author" value="<%= book.volumeInfo.authors.join(", ") %>" />
+      <input type="hidden" name="description" value="<%= book.volumeInfo.description %>" />
+      <input type="hidden" name="publish_year" value="<%= book.volumeInfo.publishedDate %>" />
+      <input type="hidden" name="image_url" value="<%= book.volumeInfo.imageLinks.thumbnail %>" />
+      <input type="hidden" name="page_count" value="<%= book.volumeInfo.pageCount %>" />
+     
+      <input type="hidden" name="language" value="<%= book.volumeInfo.language %>" />
+      <input type="hidden" name="categories" value="<%= book.volumeInfo.categories %>" />
+ 
+      <input type="submit" value="Add to Favorites" />
+    </form>
+
+    <a href="/books/favorites">Go to Favorites</a> 
+    
+    <a href="/">Back to Home</a>
+  </body>
+</html>

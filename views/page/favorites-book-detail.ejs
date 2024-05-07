@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/favorites-details.css" />
+    <link rel="stylesheet" href="../../public/style.css">
+    <title>Favorite Book</title>
+  </head>
+  <body>
+    <h1 class="title"><%= favoriteBook.title || 'No Title Available' %> Details</h1>
+    <div class="book-details">
+      <% if (favoriteBook && favoriteBook.description) { %>
+      <p  class="author">Author: <%= favoriteBook.author %></p>
+      <img class="book-cover" src="<%= favoriteBook.image_url %>" alt="Book Cover" />
+      <p class="language">Language: <%= favoriteBook.language %></p>
+      <p class="publish_year">Publish Year: <%= favoriteBook.publish_year %></p>
+      <p class="page_count">Number of pages: <%= favoriteBook.page_count %></p>
+      <p class="description">Description: <%- favoriteBook.description %></p>
+      <% } else { %>
+      <p class="no-books">No book details available.</p>
+      <% } %>
+    </div>
+
+    <div class="favorites_btns">
+      <form class="recommend_form"
+        action="/books/favorites/recommend/<%= favoriteBook.book_id %>"
+        method="POST"
+      >
+        <button class="recommend-button" type="submit">Reccomend book</button>
+      </form>
+
+      <form class="favorites_btns"
+        action="/books/favorites/delete/<%= favoriteBook.book_id %>"
+        method="POST"
+      >
+        <button class="remove-button" type="submit">Remove from favorites</button>
+      </form>
+    </div>
+    <% if (booksCount){ %>
+    <p class="books-count">Book recommended <%= booksCount %> times</p>
+    <% } %>
+
+    <a class="link" href="/books/favorites">Back to favorites</a>
+  </body>
+</html>

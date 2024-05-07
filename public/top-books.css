@@ -1,0 +1,51 @@
+.title {
+  color: #34495e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the list of books */
+.books-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Styling each book item */
+.book-item {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-left: 5px solid #0056b3;
+}
+
+/* Styling for book links */
+.book-item .book {
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: 400;
+}
+
+.book-item .book:hover {
+  text-decoration: underline;
+}
+
+/* Message when no books are found */
+.no-books {
+  text-align: center;
+  color: #e74c3c;
+}
+
+/* Styling the back to menu link */
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: 16px;
+}
+

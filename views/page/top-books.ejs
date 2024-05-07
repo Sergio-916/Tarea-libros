@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/top-books.css" />
+    <link rel="stylesheet" href="../../public/style.css" />
+    <title>Top books</title>
+  </head>
+  <body>
+    <h2 class="title">Top Popular Books</h2>
+
+    <ul class="books-list">
+      <% if (books && books.items) { %> <% books.items.forEach((item) => { %>
+      <li class="book-item">
+        <a class="book" href="/books/select/<%= item.id %>"><%= item.volumeInfo.title %></a>
+      </li>
+      <% }); %> <% } else { %>
+      <p class="no-books">No books found.</p>
+      <% } %>
+    </ul>
+    <a class="link" href="/">Back to menu</a>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+
+.title {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  .language, .publish_year, .page_count, .description {
+    margin: 20px;
+    padding: 10px;
+    background: #fff;
+    border-left: 5px solid #0056b3;
+  }
+  .author {
+    margin: 20px;
+    padding: 10px;
+    font-size: large;
+    font-weight: 500;
+    background: #fff;
+    border-left: 5px solid #0056b3;
+  }
+  
+  .book-cover {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border: 5px solid #ddd;
+  }
+  
+  form {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  input[type="submit"] {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #003d7a;
+  }
+  
+  a {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
