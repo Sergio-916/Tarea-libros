@@ -37,6 +37,10 @@ The application will be available at `http://localhost:3030`.
 - **EJS**: Templating language to generate HTML markup with plain JavaScript.
 - **MySQL**: Database to store favorite books and recommendations.
 
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
 ESPANOL
 
 # BookFavs: Una Aplicación de Gestión de Libros
