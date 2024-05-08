@@ -25,7 +25,7 @@ To get the application running locally:
 
 4. Start the server:
 
-   npm start
+   node app.js
    
 
 The application will be available at `http://localhost:3030`.
@@ -36,6 +36,10 @@ The application will be available at `http://localhost:3030`.
 - **Express**: Web application framework for Node.js.
 - **EJS**: Templating language to generate HTML markup with plain JavaScript.
 - **MySQL**: Database to store favorite books and recommendations.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
 
 ESPANOL
 
@@ -65,7 +69,7 @@ Para ejecutar la aplicación localmente:
 
 4. Inicia el servidor:
 
-   npm start
+   node app.js
 
 
 La aplicación estará disponible en `http://localhost:3030`.
