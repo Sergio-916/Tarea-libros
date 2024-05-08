@@ -23,7 +23,7 @@ class Service {
             book.volumeInfo.authors.length > 0 && // Ensure there are authors
             book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.thumbnail && // Ensure there is a thumbnail image
-            book.volumeInfo.publishedDate && // Check for publishedDate existence
+            book.volumeInfo.publishedDate && // Check for publishedDate existence 
             book.volumeInfo.publishedDate.length >= 4 // Ensure the publishedDate is long enough
         )
         .map((book) => ({
