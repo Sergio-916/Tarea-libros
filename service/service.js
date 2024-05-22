@@ -98,6 +98,7 @@ class Service {
   async showFavorites(id) {
     const connection = await pool.getConnection();
     try {
+      await createDBTable();
       const [rows, fields] = await connection.query(`SHOW TABLES LIKE 'books'`);
       if (rows.length === 0) {
         await createDBTable();
@@ -169,6 +170,7 @@ class Service {
   async booksRecomendations() {
     const connection = await pool.getConnection();
     try {
+      await createDBTable();
       const sql = `SELECT second_category, COUNT(*) AS category_count 
       FROM (
         SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(categories, ' / ', 2), ' / ', -1) AS second_category 
