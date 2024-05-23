@@ -21,9 +21,7 @@ async function createDBTable() {
        language VARCHAR(100),
        publish_year VARCHAR(100),
        categories VARCHAR(100)
-       )`;
-
-       
+       )`;       
   const connection = await pool.getConnection();
   try {
     await connection.query(createSQLTable);
@@ -34,5 +32,21 @@ async function createDBTable() {
     connection.release();
   }
 }
+const createBookTable = async () => {
+  const recommendBookTable = `CREATE TABLE IF NOT EXISTS recommended_books(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id VARCHAR(100) NOT NULL
+  )`;
+  const connection = await pool.getConnection();
+  try {
+    await connection.query(recommendBookTable);
+    console.log('Table recommented_books created successfully');
+  } catch(err) {
+    console.error("Failed to create table:", err);
+} finally {
+  connection.release();
+}
+};
 
-module.exports = { pool, createDBTable };
+
+module.exports = { pool, createDBTable, createBookTable };

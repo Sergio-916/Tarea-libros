@@ -1,8 +1,11 @@
 require("dotenv").config();
 const buildQueryURL = require("../utils/build.query");
 const fetch = require("isomorphic-fetch");
-const { pool, createDBTable } = require("../config/db.connect");
-
+const {
+  pool,
+  createDBTable,
+  createBookTable,
+} = require("../config/db.connect");
 
 const API_KEY = process.env.API_KEY;
 
@@ -23,7 +26,7 @@ class Service {
             book.volumeInfo.authors.length > 0 && // Ensure there are authors
             book.volumeInfo.imageLinks &&
             book.volumeInfo.imageLinks.thumbnail && // Ensure there is a thumbnail image
-            book.volumeInfo.publishedDate && // Check for publishedDate existence 
+            book.volumeInfo.publishedDate && // Check for publishedDate existence
             book.volumeInfo.publishedDate.length >= 4 // Ensure the publishedDate is long enough
         )
         .map((book) => ({
@@ -224,16 +227,11 @@ class Service {
   }
 
   async recommendBook(id) {
-    const recommendBookTable = `CREATE TABLE IF NOT EXISTS recommended_books(
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      book_id VARCHAR(100) NOT NULL
-    )`;
     const connection = await pool.getConnection();
     try {
-      await connection.query(recommendBookTable);
-      console.log("Table recommented_books created successfully");
+      await createBookTable();
       const sql = `INSERT INTO recommended_books (book_id) VALUES (?)`;
-      const [result] =await connection.query(sql, [id]);
+      const [result] = await connection.query(sql, [id]);
       if (result.affectedRows === 1) {
         return { success: true, message: "Book added to recommmended" };
       } else {
@@ -244,27 +242,25 @@ class Service {
       }
     } catch (err) {
       console.error("Failed to create table:", err);
-    } finally {
-      connection.release();
     }
   }
   async showRecommendedBooks(id) {
     const connection = await pool.getConnection();
     try {
+      await createBookTable();
       const sql = `SELECT book_id, COUNT(book_id) AS count
       FROM recommended_books
       WHERE book_id = ?
       GROUP BY book_id;`;
       const [booksCount] = await connection.query(sql, [id]);
-      console.log(booksCount);
       if (booksCount.length === 0) {
         console.log("No book in the database.");
-        return null
+        return null;
       } else {
-        return booksCount[0].count;        
+        return booksCount[0].count;
       }
-    } finally {
-      connection.release();
+    } catch (err) {
+      console.error("Failed to create table:", err);
     }
   }
 }

@@ -8,16 +8,17 @@
     <title>Books app</title>
   </head>
   <body>
-    <h1 class="title">Books Library</h1>
+    <h1 class="title"><a href="/">Books Library</a></h1>
 
     <h3 class="title">My book recommendations</h3>
 
     <%if (!books) { %>
     <p class="no-books">Search and select as favorites at least one books</p>
-    
-      <% } else { %> 
-        <p class="recommendations"> Recommendations based on category:
-          <b><%= category.second_category %></b> <% } %>
+
+    <% } else { %>
+    <p class="recommendations">
+      Recommendations based on category:
+      <b><%= category.second_category %></b> <% } %>
     </p>
 
     <ul class="books-list">
@@ -31,14 +32,16 @@
     </ul>
 
     <div class="links">
-       <a class="link" href="/books/top">Show top books</a>
-    
-    
-       <a class="link" href="/books/search">Search books</a>
-    
-       <a class="link" href="/books/favorites">Show favorites</a>
+      <a class="link" href="/books/top">Show top books</a>
+
+      <a class="link" href="/books/search">Search books</a>
+
+      <a class="link" href="/books/favorites">Show favorites</a>
     </div>
 
-    <p class="copyright">Copyright &copy; 2024 <a class="link-author" href="https://github.com/Sergio-916">Sergio-916</a></p>
+    <p class="copyright">
+      Copyright &copy; 2024
+      <a class="link-author" href="https://github.com/Sergio-916">Sergio-916</a>
+    </p>
   </body>
 </html>
